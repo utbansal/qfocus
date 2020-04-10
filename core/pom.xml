@@ -15,9 +15,7 @@
 	</parent>
 
 	<modules>
-		<!--<module>icore-common</module> -->
-		
-
+		<module>core-common</module>
     </modules>
 
 	<packaging>pom</packaging>
