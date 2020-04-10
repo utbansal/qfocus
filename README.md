@@ -22,3 +22,14 @@ Problem statement
 3. Automated risk Insight into a release
 
 
+Automated Testcase management
+1. Provide ability to organize TC ( testcases) using lables , tags ( similar to jira) probably even same.
+2. Provide ability to execute TC for certain builds , features , releases etc
+
+
+Challenges 
+1. Generate unique ID for each TC.
+2. Manage TC a lifecycle - eg renaming , code deletion , code addition.
+3. Connect to a repository ( compiled and non compiled code) to detect new TC's / detect changes
+4. Connect to jira cloud
+5. Integrate with jenkins
