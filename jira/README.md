@@ -1,0 +1,1 @@
+Root project folder for Jira integrations
