@@ -10,5 +10,11 @@ public class SimpleTest {
 	public void sampleTestForAnnotation() {
 		
 	}
+
+	@Testcase
+	@Test
+	public void anotherUsecaseTest() {
+		
+	}
 	
 }
