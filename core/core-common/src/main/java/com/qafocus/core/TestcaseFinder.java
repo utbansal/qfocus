@@ -6,7 +6,6 @@ import java.util.Set;
 
 import org.reflections.Reflections;
 import org.reflections.scanners.MethodAnnotationsScanner;
-import org.reflections.util.ClasspathHelper;
 import org.reflections.util.ConfigurationBuilder;
 
 public class TestcaseFinder<T extends Testcase> {
@@ -16,9 +15,9 @@ public class TestcaseFinder<T extends Testcase> {
 	private static final MethodAnnotationsScanner METHOD_ANNOTATIONS_SCANNER = new MethodAnnotationsScanner();
 
 
-	public Set<Method> findCases() {
+	public Set<Method> findCasesCurrentClasspath(String packageStr) {
 		
-		Reflections reflections = new Reflections("com.qafocus",METHOD_ANNOTATIONS_SCANNER);
+		Reflections reflections = new Reflections(packageStr,METHOD_ANNOTATIONS_SCANNER);
 
 		return getAllMethodWithTestcaseAnnotation(reflections);
 	}
