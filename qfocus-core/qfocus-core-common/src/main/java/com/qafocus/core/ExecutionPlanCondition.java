@@ -13,16 +13,13 @@ import org.junit.jupiter.api.extension.ConditionEvaluationResult;
 import org.junit.jupiter.api.extension.ExecutionCondition;
 import org.junit.jupiter.api.extension.ExtensionContext;
 import org.junit.platform.commons.util.AnnotationUtils;
-import org.junit.platform.commons.util.ClassUtils;
 
 import com.qafocus.core.util.CsvLoader;
-
-import sun.reflect.annotation.AnnotationType;
 
 public class ExecutionPlanCondition implements ExecutionCondition {
 
 	private static final ConditionEvaluationResult ENABLED = ConditionEvaluationResult.enabled("@Testcase to be executed");
-	private static final ConditionEvaluationResult DISABLED = ConditionEvaluationResult.enabled("@Testcase NOT to be executed");
+	private static final ConditionEvaluationResult DISABLED = ConditionEvaluationResult.disabled("@Testcase NOT to be executed");
 
 	@Override
 	public ConditionEvaluationResult evaluateExecutionCondition(ExtensionContext context) {
