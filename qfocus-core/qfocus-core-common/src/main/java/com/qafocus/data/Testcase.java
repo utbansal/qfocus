@@ -1,4 +1,4 @@
-package com.qafocus.entity;
+package com.qafocus.data;
 
 import java.util.List;
 
@@ -14,5 +14,6 @@ public class Testcase {
 	private List<String> tags;
 	private List<String> labels;
 	private List<String> releases;
+	private boolean enabled;
 	
 }

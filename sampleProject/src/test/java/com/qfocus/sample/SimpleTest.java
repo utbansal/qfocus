@@ -8,20 +8,22 @@ import com.qafocus.core.ExecutionPlanCondition;
 import com.qafocus.core.Testcase;
 
 @ExtendWith(ExecutionPlanCondition.class)
+@Testcase
 public class SimpleTest {
 
 	
 	@Testcase
 	@Test
 	public void sampleTestForAnnotation() {
-		System.out.println("Sample testing");
+		System.out.println("Sample testing. To be executed");
 //		assertTrue(true);
 	}
 
-	@Testcase
 	@Test
+	@Testcase
 	public void anotherUsecaseTest() {
 		
+		System.out.println("Sample testing. DO not run");
 	}
 	
 }
