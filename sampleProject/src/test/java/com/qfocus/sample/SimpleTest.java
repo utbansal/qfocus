@@ -2,9 +2,12 @@ package com.qfocus.sample;
 
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 
+import com.qafocus.core.ExecutionPlanCondition;
 import com.qafocus.core.Testcase;
 
+@ExtendWith(ExecutionPlanCondition.class)
 public class SimpleTest {
 
 	

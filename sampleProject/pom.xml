@@ -31,8 +31,8 @@
 	<dependencies>
 
 		<dependency>
-			<groupId>com.qafocus</groupId>
-			<artifactId>core-common</artifactId>
+			<groupId>com.qafocus.core</groupId>
+			<artifactId>qfocus-core-common</artifactId>
 			<version>1.0</version>
 		</dependency>
 		<dependency>
