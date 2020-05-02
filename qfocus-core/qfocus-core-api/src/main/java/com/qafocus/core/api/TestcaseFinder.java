@@ -1,4 +1,4 @@
-package com.qafocus.core;
+package com.qafocus.core.api;
 
 import java.lang.reflect.Method;
 import java.net.URL;
@@ -7,6 +7,8 @@ import java.util.Set;
 import org.reflections.Reflections;
 import org.reflections.scanners.MethodAnnotationsScanner;
 import org.reflections.util.ConfigurationBuilder;
+
+import com.qafocus.core.Testcase;
 
 public class TestcaseFinder<T extends Testcase> {
 
