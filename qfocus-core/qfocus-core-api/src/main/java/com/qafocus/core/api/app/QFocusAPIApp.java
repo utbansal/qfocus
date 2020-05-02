@@ -1,44 +1,38 @@
 package com.qafocus.core.api.app;
 
-import org.springframework.boot.CommandLineRunner;
+import java.util.Arrays;
+
+import javax.annotation.PostConstruct;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
-
-import com.qafocus.core.entity.TestcaseE;
-import com.qafocus.core.repo.TestcaseRepo;
+import org.springframework.core.env.Environment;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 import lombok.extern.slf4j.Slf4j;
 
 @SpringBootApplication
 @Slf4j
+@EnableJpaRepositories
 public class QFocusAPIApp {
-	
+	@Autowired
+	private Environment environment;
+
 	public static void main(String[] args) {
-		SpringApplication.run(QFocusAPIApp.class, args);
+		try {
+			SpringApplication.run(QFocusAPIApp.class, args);
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		}
 	}
 
-	
-	@Bean
-	  public CommandLineRunner demo(TestcaseRepo repository) {
-	    return (args) -> {
-	      // save a few customers
-	      TestcaseE testcaseE = new TestcaseE("com.package.dummyclass.dummymethod");
-	      
-		repository.save(testcaseE);
+	@PostConstruct
+	public void init() {
+		log.info(Arrays.asList(environment.getDefaultProfiles()).toString());
+		System.out.println(Arrays.asList(environment.getDefaultProfiles()).toString());
+	}
 
-	      // fetch all customers
-	      for (TestcaseE customer : repository.findAll()) {
-	        log.info(customer.toString());
-	      }
 
-	      // fetch an individual customer by ID
-	      TestcaseE customer = repository.findById(1L);
-
-	      // fetch customers by last name
-	      repository.findByLastName("Bauer").forEach(bauer -> {
-	        log.info(bauer.toString());
-	      });
-	    };
-	  }
 }

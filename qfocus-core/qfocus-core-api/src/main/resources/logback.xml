@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+
+    <property name="PATH" value="logs" />
+    <springProperty scope="context" name="APP_NAME" source="spring.application.name"/>
+    <springProperty scope="context" name="APP_VERSION" source="info.version"/>
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <Pattern>
+                %d{yyyy-MM-dd HH:mm:ss.SSS} || %5p || ${APP_NAME} || %X{X-B3-TraceId:-} || %X{X-B3-SpanId:-} || %t || %logger{32} || %m%n
+            </Pattern>
+        </encoder>
+    </appender>
+
+	<logger name="io.swagger.models.parameters.AbstractSerializableParameter" level="ERROR" />
+    
+    <logger name="org.springframework" level="info" additivity="false">
+        <appender-ref ref="STDOUT" />
+    </logger>
+
+    <logger name="org.hibernate" level="info" additivity="false">
+        <appender-ref ref="STDOUT" />
+    </logger>
+
+    <root level="INFO">
+        <appender-ref ref="STDOUT" />
+    </root>
+</configuration>
